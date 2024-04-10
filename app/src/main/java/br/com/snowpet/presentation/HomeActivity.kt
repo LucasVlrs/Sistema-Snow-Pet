@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import br.com.snowpet.R
+import br.com.snowpet.core.MessageDialog
 import br.com.snowpet.databinding.ActivityMainBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -19,6 +20,12 @@ class HomeActivity : AppCompatActivity() {
         viewModel.setTeste(7)
 
         setUpObservers()
+
+        MessageDialog(
+            title = "teste",
+            btnPrimary = "OK",
+            primaryOnClickListener = { dialog?.dismiss() },
+        ).show(supportFragmentManager, "TAG")
     }
 
     private fun setUpObservers() {
